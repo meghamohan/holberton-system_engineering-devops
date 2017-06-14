@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 #displaying bad luck numbers
-for ((i=1; i<=20; i++));
+i=1
+while [ $i -le 20 ];
 do
     case $i in
-        4) echo "bad luck from China"
+        5) echo "bad luck from China"
         ;;
-        9) echo "bad luck from Japan"
+        10) echo "bad luck from Japan"
         ;;
-        17) echo "bad luck from Italy"
+        18) echo "bad luck from Italy"
     esac
     echo $i
+    let i+=1
 done
