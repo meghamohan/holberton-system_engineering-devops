@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#displaying bad luck numbers
 for ((i=1; i<=20; i++));
 do
     case $i in
