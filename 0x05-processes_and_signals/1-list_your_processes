@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-#lists all running processes
-ps -Ao user,pid,%cpu,%mem,vsz,rss,tname,stat,bsdstart,bsdtime,command
+# lists all currently running processes
+# ps -Ao user,pid,%cpu,%mem,vsz,rss,tname,stat,bsdstart,bsdtime,command
+ps auxf
