@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# creates file, runs loop and deletes file
+trap "echo I hate the kill command; cleanup" SIGTERM SIGKILL
+trap "echo Y U no love me?!" SIGINT
+
+echo $$ >> /var/run/holbertonscript.pid
+while :
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
