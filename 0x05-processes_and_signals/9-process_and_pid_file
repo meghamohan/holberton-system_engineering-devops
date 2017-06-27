@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # creates file, runs loop and deletes file
-trap "echo I hate the kill command" SIGTERM
-trap clean_up SIGKILL SIGTERM SIGQUIT
-trap "echo Y U no love me?!" SIGINT
+trap "echo I hate the kill command;clean_up" SIGTERM SIGQUIT
+trap "echo Y U no love me?!;clean_up" SIGINT
 function clean_up {
 
 	# Perform program exit housekeeping
