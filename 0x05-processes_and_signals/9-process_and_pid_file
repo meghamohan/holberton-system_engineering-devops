@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 # creates file, runs loop and deletes file
-trap "echo I hate the kill command; cleanup" SIGTERM SIGKILL
+trap "echo I hate the kill command" SIGTERM
+trap clean_up SIGKILL SIGTERM SIGQUIT
 trap "echo Y U no love me?!" SIGINT
+function clean_up {
+
+	# Perform program exit housekeeping
+	rm /var/run/holbertonscript.pid
+	exit
+}
 
 echo $$ >> /var/run/holbertonscript.pid
 while :
