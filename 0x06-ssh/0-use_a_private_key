@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# uses ssh to connect to a server with a specific user
+ssh ubuntu@66.70.184.33 -i ~/.ssh/holberton
