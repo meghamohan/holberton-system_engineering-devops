@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Configure nginx server to redirect to another page.
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
+newString="\tlocation /redirect_me {\n\t\treturn 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;\n\t}"
+sudo sed -i '29 i $newString' /etc/nginx/sites-available/default
+sudo service nginx restart 
