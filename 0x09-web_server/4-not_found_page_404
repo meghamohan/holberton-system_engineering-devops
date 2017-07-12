@@ -3,4 +3,5 @@
 sudo apt-get -y install nginx
 sudo service nginx start
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/my404.html;
+sudo sed -i "32i error_page 404 /my404.html;\n location = /my404.html {\n root /usr/share/nginx/html;\n internal;}\n" /etc/nginx/sites-available/default;
 sudo service nginx start
