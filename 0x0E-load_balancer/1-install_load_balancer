@@ -5,5 +5,5 @@ apt-get update
 apt-get dist-upgrade
 apt-get install haproxy
 sudo sed -i 's|ENABLED=0|ENABLED=1|' /etc/default/haproxy
-
-service haproxy start
+sed -i '1 i \listen Holberton *:80 \n mode http \n stats enable \n stats uri /haproxy_stats \n balance roundrobin \n server 120-web-01 66.70.184.186:80 check \n server 120-web-02 142.44.164.126:80 check' /etc/haproxy/haproxy.cfg
+service haproxy restart
