@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Bash script to install HAProxy loadbalancer
+add-apt-repository ppa:vbernat/haproxy-1.5
+apt-get update
+apt-get dist-upgrade
+apt-get install haproxy
+sudo sed -i 's|ENABLED=0|ENABLED=1|' /etc/default/haproxy
+
+service haproxy start
