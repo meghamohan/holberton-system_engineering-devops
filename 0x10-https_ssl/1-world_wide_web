@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# display information about subdomains.
+
+printDig () {
+    subdomain=$1
+    domain=$2
+    dig "$subdomain.$domain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v a="$subdomain" '{print "The subdomain " a " is a " $4 " record and points to " $NF}'
+}
+subD=("www" "lb-01" "web-01" "web-02")
+
+if [ $# -eq 1 ]; then
+    for a in "${subD[@]}"
+    do
+        printDig "$a" "$1"
+    done
+elif [ $# -eq 2 ]; then
+    printDig "$2" "$1"
+fi
