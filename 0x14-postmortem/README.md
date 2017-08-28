@@ -1,14 +1,14 @@
 # 0x11. Postmortem
 
 ### Summary:
-Around 7:10 AM PST 24th August 2017 an issue was reported that some of the pages were not accessible. System admin started debugging the issue and narrowed the issue down to pages with encoded URL.
+Around 7:10 AM PST 24th August 2017 an issue was reported that some of the pages of holbertonschool.com were not accessible. System admin started debugging the issue and narrowed the issue down to pages with encoded URL. Approximately 20% of users were affected. It took approximately 7 hours to debug, fix the issue and test it and at around 2.30PM PST the website was fully operational again.
 
 ### Timeline
-- **7:10AM PST** - User issue logged
-- **8:30AM PST** - System admins starts debugging. Narrowed issue to pages with encoded URL
+- **7:10AM PST** - User issue logged that some 
+- **8:30AM PST** - System admins starts debugging. Narrowed issue to pages with encoded URL as all other URLs seemed to be working fine
 - **9:00AM PST** - Internally it was verified that taking Nginx out of the path, the requests are getting served fine.
 - **11:30AM PST** - Sysadmin discovers from Nginx error.log that the root cause of the issue is because of decoding url before sending to application server.
-- **12:30AM PST** - Identified offending Nginx configuration update which caused issue.
+- **12:30AM PST** - Identified that the incorrect Nginx configuration caused issuei.
 - **1:00 PM PST** - Updated Nginx configuration with the fix and all services restored to normal.
 - **2:00 PM PST** - Opened a case to systest to add Nginx in end2end testing scenario
 
