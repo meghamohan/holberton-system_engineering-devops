@@ -1,19 +1,12 @@
 # config file
 
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server ipv6only=on;
+    listen 80;
+    server_name 127.0.0.1;
 
-	root /usr/share/nginx/html;
-	server_name 127.0.0.1;
-
-	location / {
-		try_files $uri $uri/ =404;
-	}
-	location /airbnb-onepage {
-		rewrite ^/airbnb-onepage(.*) /$1 break;
-		include proxy_params;
-		proxy_pass http://127.0.0.1:8001/;
-		# proxy_pass http://unix:/home/ubuntu/AirBnB/task0.sock;
-	}
+    location /airbnb-onepage {
+        include proxy_params;
+        proxy_pass http://127.0.0.1:8001/;
+        # proxy_pass http://unix:/home/ubuntu/AirBnB/task0.sock;
+    }
 }
